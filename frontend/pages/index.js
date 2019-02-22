@@ -1,11 +1,9 @@
-import Link from 'next/link';
+import SignUp from '../components/SignUp/SignUp';
 
-const Home = () => (
-    <div>
-        <h1>Home</h1>
-        <Link href="/test">
-            <a>test me</a>
-        </Link>
-    </div>
+const Home = props => (
+    <>
+        <SignUp />
+    </>
 );
+
 export default Home;
