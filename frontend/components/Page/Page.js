@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import Meta from './Meta';
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
-import Header from './Header';
+import React, { Component } from "react";
+import Meta from "./Meta";
+import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
+import Header from "./Header";
 
 const theme = {
-    red: '#FF0000',
-    black: '#393939',
-    grey: '#3A3A3A',
-    lightgrey: '#E1E1E1',
-    offWhite: '#EDEDED',
-    maxWidth: '1000px',
+  red: "#FF0000",
+  black: "#393939",
+  grey: "#3A3A3A",
+  lightgrey: "#E1E1E1",
+  offWhite: "#EDEDED",
+  maxWidth: "1000px"
 };
 
 const GlobalStyle = createGlobalStyle`
@@ -40,23 +40,12 @@ const GlobalStyle = createGlobalStyle`
         font-size: 1.5rem;
         line-height: 2;
         font-family: 'Rubik';
-        background: linear-gradient(
-            165deg,
-            #e9eaef,
-            #e0e3e6,
-            #d6d6d6,
-            #e7ccc9,
-            #f7ada7,
-            #d68588,
-            #ca3884,
-            #c7297b
-        );
+        background: #f3827c;
+        background: -webkit-linear-gradient(to bottom, #eed5ad, #fbb67f, #f3827c, #f27c7c);
+        background: linear-gradient(to bottom, #eed5ad, #fbb67f, #f3827c, #f27c7c);
         color: ${props => props.theme.black};
         height: 100%;
         overflow-y: scroll;
-    }
-    #__next {
-        height: 100%;
     }
     a {
         text-decoration: none;
@@ -66,30 +55,28 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Inner = styled.div`
-    max-width: ${props => props.theme.maxWidth};
-    background-color: white;
-    margin: 0 auto;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    align-items: stretch;
-    min-height: 100%;
+  max-width: ${props => props.theme.maxWidth};
+  position: relative;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  align-items: stretch;
+  min-height: 100vh;
 `;
 
 class Page extends Component {
-    render() {
-        return (
-            <ThemeProvider theme={theme}>
-                <>
-                    <Meta />
-                    <Header />
-                    <GlobalStyle />
-                    <Inner>{this.props.children}</Inner>
-                </>
-            </ThemeProvider>
-        );
-    }
+  render() {
+    return (
+      <ThemeProvider theme={theme}>
+        <>
+          <Meta />
+          <Header />
+          <GlobalStyle />
+          <Inner>{this.props.children}</Inner>
+        </>
+      </ThemeProvider>
+    );
+  }
 }
 
 export default Page;
