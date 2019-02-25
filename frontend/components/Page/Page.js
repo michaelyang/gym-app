@@ -56,12 +56,10 @@ const GlobalStyle = createGlobalStyle`
 
 const Inner = styled.div`
   max-width: ${props => props.theme.maxWidth};
-  position: relative;
   margin: 0 auto;
-  padding: 2rem;
-  display: grid;
-  align-items: stretch;
   min-height: 100vh;
+  display: flex;
+  align-items: center;
 `;
 
 class Page extends Component {

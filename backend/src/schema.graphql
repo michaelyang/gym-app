@@ -1,8 +1,14 @@
 # import * from './generated/prisma.graphql'
+type LoginResponse {
+  token: String
+  user: User
+}
 
 type Query {
   currentUser: User!
 }
 
-#type Mutation {
-#}
+type Mutation {
+  register(name: String!, email: String!, password: String!): User!
+  login(email: String!, password: String!): LoginResponse!
+}

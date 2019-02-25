@@ -23,28 +23,36 @@ const LoginForm = styled.form`
     padding: 2rem 3rem;
     font-size: 1.6rem;
     border: 0;
-    color: #dcac96;
-    background: #ffffffdd;
+    color: #ffffffdd;
+    background: #000000cc;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     ::placeholder {
-      color: #dcac96;
+      color: #ffffff66;
     }
-    &:focus {
-      outline: 0;
-      background: #ffffff;
+    :hover,
+    :focus {
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
     }
   }
   button,
   input[type="submit"] {
     width: 100%;
+    margin: 1rem 0;
     background: #2d3b55;
     color: white;
     border: 0;
     font-size: 1.6rem;
     padding: 0.5rem 1.2rem;
     border: none;
-    padding: 1rem;
+    padding: 1.6rem;
     cursor: pointer;
-    transition: all 0.3s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    :hover,
+    :focus {
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+    }
   }
   fieldset {
     width: 100%;
@@ -68,13 +76,13 @@ class Login extends Component {
 
   render() {
     return (
-      <LoginForm>
+      <LoginForm method="post">
         <fieldset>
           <label htmlFor="email">
             <input
               type="email"
               name="email"
-              placeholder="email"
+              placeholder="Email Address"
               autoComplete="username"
               value={this.state.email}
               onChange={this.saveToState}
@@ -85,7 +93,7 @@ class Login extends Component {
               type="password"
               name="password"
               autoComplete="current-password"
-              placeholder="password"
+              placeholder="Password"
               value={this.state.password}
               onChange={this.saveToState}
             />
