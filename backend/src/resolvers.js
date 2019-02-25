@@ -1,4 +1,5 @@
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const resolvers = {
   Query: {
@@ -24,6 +25,32 @@ const resolvers = {
         info
       );
       return user;
+    },
+    async login(parents, args, ctx, info) {
+      const { email, password } = args;
+      const user = await ctx.db.query.user({ where: { email } });
+      if (!user) {
+        throw new Error("No user with that email.");
+      }
+
+      const passwordMatch = await bcrypt.compare(password, user.password);
+      if (!passwordMatch) {
+        throw new Error("Incorrect password.");
+      }
+      const token = jwt.sign(
+        {
+          id: user.id,
+          username: user.email
+        },
+        process.env.APP_SECRET,
+        {
+          expiresIn: "30d"
+        }
+      );
+      return {
+        token,
+        user
+      };
     }
   }
 };
