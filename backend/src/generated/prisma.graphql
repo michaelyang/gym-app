@@ -1,5 +1,5 @@
 # source: https://us1.prisma.sh/michael-47ff10/weirdflex/dev
-# timestamp: Sun Feb 24 2019 17:11:23 GMT-0500 (EST)
+# timestamp: Mon Feb 25 2019 00:07:16 GMT-0500 (EST)
 
 type AggregateUser {
   count: Int!
@@ -70,8 +70,7 @@ type Subscription {
 
 type User implements Node {
   id: ID!
-  firstName: String!
-  lastName: String!
+  name: String!
   email: String!
   password: String!
 }
@@ -87,8 +86,7 @@ type UserConnection {
 }
 
 input UserCreateInput {
-  firstName: String!
-  lastName: String!
+  name: String!
   email: String!
   password: String!
 }
@@ -105,10 +103,8 @@ type UserEdge {
 enum UserOrderByInput {
   id_ASC
   id_DESC
-  firstName_ASC
-  firstName_DESC
-  lastName_ASC
-  lastName_DESC
+  name_ASC
+  name_DESC
   email_ASC
   email_DESC
   password_ASC
@@ -121,8 +117,7 @@ enum UserOrderByInput {
 
 type UserPreviousValues {
   id: ID!
-  firstName: String!
-  lastName: String!
+  name: String!
   email: String!
   password: String!
 }
@@ -167,15 +162,13 @@ input UserSubscriptionWhereInput {
 }
 
 input UserUpdateInput {
-  firstName: String
-  lastName: String
+  name: String
   email: String
   password: String
 }
 
 input UserUpdateManyMutationInput {
-  firstName: String
-  lastName: String
+  name: String
   email: String
   password: String
 }
@@ -229,86 +222,46 @@ input UserWhereInput {
 
   """All values not ending with the given string."""
   id_not_ends_with: ID
-  firstName: String
+  name: String
 
   """All values that are not equal to given value."""
-  firstName_not: String
+  name_not: String
 
   """All values that are contained in given list."""
-  firstName_in: [String!]
+  name_in: [String!]
 
   """All values that are not contained in given list."""
-  firstName_not_in: [String!]
+  name_not_in: [String!]
 
   """All values less than the given value."""
-  firstName_lt: String
+  name_lt: String
 
   """All values less than or equal the given value."""
-  firstName_lte: String
+  name_lte: String
 
   """All values greater than the given value."""
-  firstName_gt: String
+  name_gt: String
 
   """All values greater than or equal the given value."""
-  firstName_gte: String
+  name_gte: String
 
   """All values containing the given string."""
-  firstName_contains: String
+  name_contains: String
 
   """All values not containing the given string."""
-  firstName_not_contains: String
+  name_not_contains: String
 
   """All values starting with the given string."""
-  firstName_starts_with: String
+  name_starts_with: String
 
   """All values not starting with the given string."""
-  firstName_not_starts_with: String
+  name_not_starts_with: String
 
   """All values ending with the given string."""
-  firstName_ends_with: String
+  name_ends_with: String
 
   """All values not ending with the given string."""
-  firstName_not_ends_with: String
-  lastName: String
-
-  """All values that are not equal to given value."""
-  lastName_not: String
-
-  """All values that are contained in given list."""
-  lastName_in: [String!]
-
-  """All values that are not contained in given list."""
-  lastName_not_in: [String!]
-
-  """All values less than the given value."""
-  lastName_lt: String
-
-  """All values less than or equal the given value."""
-  lastName_lte: String
-
-  """All values greater than the given value."""
-  lastName_gt: String
-
-  """All values greater than or equal the given value."""
-  lastName_gte: String
-
-  """All values containing the given string."""
-  lastName_contains: String
-
-  """All values not containing the given string."""
-  lastName_not_contains: String
-
-  """All values starting with the given string."""
-  lastName_starts_with: String
-
-  """All values not starting with the given string."""
-  lastName_not_starts_with: String
-
-  """All values ending with the given string."""
-  lastName_ends_with: String
-
-  """All values not ending with the given string."""
-  lastName_not_ends_with: String
+  name_not_ends_with: String
   email: String
 
   """All values that are not equal to given value."""
