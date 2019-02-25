@@ -1,9 +1,9 @@
-import SignUp from '../components/SignUp/SignUp';
+import Entry from "../components/Entry/Entry";
 
 const Home = props => (
-    <>
-        <SignUp />
-    </>
+  <>
+    <Entry />
+  </>
 );
 
 export default Home;

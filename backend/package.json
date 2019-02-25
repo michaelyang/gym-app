@@ -1,0 +1,22 @@
+{
+  "name": "weirdflex-backend",
+  "version": "1.0.0",
+  "description": "backend for weirdflex",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "prisma deploy",
+    "start": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "apollo-server": "^2.4.6",
+    "dotenv": "^6.2.0",
+    "graphql": "^14.1.1",
+    "graphql-import": "^0.7.1",
+    "prisma-binding": "^2.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  },
+  "author": "michael-yang",
+  "license": "MIT"
+}
