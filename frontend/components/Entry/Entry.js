@@ -1,78 +1,55 @@
-import React, { Component } from "react";
-import Link from "next/link";
-import styled from "styled-components";
-import Login from "./Login/Login";
-import Register from "./Register/Register";
-import Modal from "../Modal";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import EntryForm from './EntryForm';
+import EntryFormToggle from './EntryFormToggle';
 
 const StyledEntry = styled.div`
-  flex-grow: 0.5;
-  max-height: 90vh;
-  padding: 3rem 0;
-  display: grid;
-  margin: auto;
-  justify-items: center;
-  justify-self: center;
-  grid-template-areas: "logo" "login" "register";
-  grid-template-rows: 3fr 2fr 1fr;
-  grid-template-columns: 1fr;
-  align-content: center;
-  background-color: white;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    margin: auto;
+    justify-items: center;
+    justify-self: center;
+    grid-template-areas: 'logo' 'form' 'form-toggle';
+    grid-template-rows: 1fr 3fr 0.5fr;
+    align-content: center;
+    background-color: white;
+    max-width: 500px;
+    max-height: 700px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 `;
 
 const Logo = styled.div`
-  grid-area: logo;
-  align-self: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  img {
-    max-width: 200px;
-  }
-  span {
-    margin: 0.5rem;
-    font-size: 2.4rem;
-    color: #f27c7c;
-  }
-`;
-
-const RegisterText = styled.span`
-  grid-area: register;
-  align-self: end;
-  color: #2d3b55;
-  font-size: 1.2rem;
-  padding: 1rem;
-  cursor: pointer;
-  a {
-    text-decoration: none;
-    color: #f27c7c;
-  }
+    grid-area: logo;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    img {
+        max-width: 150px;
+    }
 `;
 
 class Entry extends Component {
-  state = { showRegister: false };
-  toggleRegister = () => {
-    this.setState({ showRegister: !this.state.showRegister });
-  };
-  render() {
-    return (
-      <StyledEntry>
-        <Modal show={this.state.showRegister} handleClose={this.toggleRegister}>
-          <Register />
-        </Modal>
-        <Logo>
-          <img src="/static/logo/logoColored.png" alt="weirdflex" />
-          <span>WeirdFlex</span>
-        </Logo>
-        <Login />
-        <RegisterText>
-          Don't have an account yet?{" "}
-          <a onClick={this.toggleRegister}>Click here</a>.
-        </RegisterText>
-      </StyledEntry>
-    );
-  }
+    state = { entryState: 'login' };
+    toggleEntryState = () => {
+        this.setState({
+            entryState: this.state.entryState == 'login' ? 'register' : 'login',
+        });
+    };
+    render() {
+        return (
+            <StyledEntry>
+                <Logo>
+                    <img src="/static/logo/running.gif" alt="weirdflex" />
+                </Logo>
+                <EntryForm entryState={this.state.entryState} />
+                <EntryFormToggle
+                    entryState={this.state.entryState}
+                    handleClick={this.toggleEntryState}
+                />
+            </StyledEntry>
+        );
+    }
 }
 
 export default Entry;
