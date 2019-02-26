@@ -14,30 +14,31 @@ const theme = {
 };
 
 const GlobalStyle = createGlobalStyle`
+    /* karla-regular - latin */
     @font-face {
-    font-family: 'Rubik';
+    font-family: 'Karla';
     font-style: normal;
     font-weight: 400;
-    src: url('/static/fonts/rubik-v8-latin-regular.eot'); /* IE9 Compat Modes */
-    src: local('Rubik'), local('Rubik-Regular'),
-        url('/static/fonts/rubik-v8-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-        url('/static/fonts/rubik-v8-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-        url('/static/fonts/rubik-v8-latin-regular.woff') format('woff'), /* Modern Browsers */
-        url('/static/fonts/rubik-v8-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-        url('/static/fonts/rubik-v8-latin-regular.svg#Rubik') format('svg'); /* Legacy iOS */
+    src: url('/static/fonts/karla-v7-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local('Karla'), local('Karla-Regular'),
+        url('/static/fonts/karla-v7-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('/static/fonts/karla-v7-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+        url('/static/fonts/karla-v7-latin-regular.woff') format('woff'), /* Modern Browsers */
+        url('/static/fonts/karla-v7-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+        url('/static/fonts/karla-v7-latin-regular.svg#Karla') format('svg'); /* Legacy iOS */
     }
-
+    /* karla-700 - latin */
     @font-face {
-    font-family: 'Rubik';
+    font-family: 'Karla';
     font-style: normal;
-    font-weight: 500;
-    src: url('/static/fonts/rubik-v8-latin-500.eot'); /* IE9 Compat Modes */
-    src: local('Rubik Medium'), local('Rubik-Medium'),
-        url('/static/fonts/rubik-v8-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-        url('/static/fonts/rubik-v8-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
-        url('/static/fonts/rubik-v8-latin-500.woff') format('woff'), /* Modern Browsers */
-        url('/static/fonts/rubik-v8-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
-        url('/static/fonts/rubik-v8-latin-500.svg#Rubik') format('svg'); /* Legacy iOS */
+    font-weight: 700;
+    src: url('/static/fonts/karla-v7-latin-700.eot'); /* IE9 Compat Modes */
+    src: local('Karla Bold'), local('Karla-Bold'),
+        url('/static/fonts/karla-v7-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('/static/fonts/karla-v7-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+        url('/static/fonts/karla-v7-latin-700.woff') format('woff'), /* Modern Browsers */
+        url('/static/fonts/karla-v7-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+        url('/static/fonts/karla-v7-latin-700.svg#Karla') format('svg'); /* Legacy iOS */
     }
     html {
         box-sizing: border-box;
@@ -52,7 +53,7 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         font-size: 1.5rem;
         line-height: 2;
-        font-family: 'Rubik';
+        font-family: 'Karla';
         background: ${props => props.theme.mainRed};;
         color: ${props => props.theme.black};
         height: 100%;
@@ -62,7 +63,7 @@ const GlobalStyle = createGlobalStyle`
         text-decoration: none;
         color: ${props => props.theme.black};
     }
-    button {  font-family: 'Rubik'; }
+    button {  font-family: 'Karla'; }
 `;
 
 const Inner = styled.div`

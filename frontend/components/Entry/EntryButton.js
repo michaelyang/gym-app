@@ -1,27 +1,27 @@
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
 
-const loginText = 'Log In';
-const registerText = 'Join';
+const loginText = '→';
+const registerText = '→';
 
 const StyledEntryButton = styled.button`
-    width: 100%;
-    margin: 1rem 0;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    display: block;
+    border-radius: 50%;
     background: ${props => props.theme.black};
     color: #ededed;
-    border: 0;
     font-size: 1.6rem;
-    padding: 0.5rem 1.2rem;
     border: none;
-    padding: 1.6rem;
-    z-index: -2;
     cursor: pointer;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     :hover,
     :focus {
-        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-            0 5px 5px rgba(0, 0, 0, 0.22);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25), 0 3px 6px rgba(0, 0, 0, 0.22);
     }
 `;
 
@@ -55,7 +55,7 @@ const AnimationStyles = styled.span`
     }
 `;
 
-const EntryButton = ({ entryState, handleSubmit }) => {
+const EntryButton = ({ entrystate, handleSubmit }) => {
     return (
         <StyledEntryButton onClick={handleSubmit}>
             <AnimationStyles>
@@ -64,10 +64,10 @@ const EntryButton = ({ entryState, handleSubmit }) => {
                         unmountOnExit
                         className="fade"
                         classNames="fade"
-                        key={entryState}
+                        key={entrystate}
                         timeout={700}>
                         <span>
-                            {entryState == 'login' ? loginText : registerText}
+                            {entrystate == 'login' ? loginText : registerText}
                         </span>
                     </CSSTransition>
                 </TransitionGroup>

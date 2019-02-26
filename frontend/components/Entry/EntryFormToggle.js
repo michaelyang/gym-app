@@ -7,15 +7,16 @@ const toLoginButtonText = 'Sign In';
 
 const StyledEntryFormToggle = styled.span`
     grid-area: form-toggle;
+    flex-grow: 1;
     align-self: end;
     color: ${props => props.theme.black};
     font-size: 1.2rem;
     padding: 1rem;
     a {
         font-size: 1.2rem;
-        font-weight: 500;
+        font-weight: 700;
         cursor: pointer;
-        color: ${props => props.theme.offWhite};
+        color: ${props => props.theme.mainRed};
     }
 `;
 
