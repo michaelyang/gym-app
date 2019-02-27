@@ -3,9 +3,9 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "dev": "next",
+        "dev": "next -p 7777",
         "build": "next build",
-        "start": "next start",
+        "start": "next start -p $PORT",
         "heroku-postbuild": "next build"
     },
     "keywords": [],
