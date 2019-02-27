@@ -1,8 +1,8 @@
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import styled from 'styled-components';
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+import styled from "styled-components";
 
-const loginText = '→';
-const registerText = '→';
+const loginText = "→";
+const registerText = "→";
 
 const StyledEntryButton = styled.button`
     margin: 0 auto;
@@ -65,9 +65,10 @@ const EntryButton = ({ entrystate, handleSubmit }) => {
                         className="fade"
                         classNames="fade"
                         key={entrystate}
-                        timeout={700}>
+                        timeout={700}
+                    >
                         <span>
-                            {entrystate == 'login' ? loginText : registerText}
+                            {entrystate == "login" ? loginText : registerText}
                         </span>
                     </CSSTransition>
                 </TransitionGroup>

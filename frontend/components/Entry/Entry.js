@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import EntryForm from './EntryForm';
-import EntryFormToggle from './EntryFormToggle';
+import React, { Component } from "react";
+import styled from "styled-components";
+import EntryForm from "./EntryForm";
+import EntryFormToggle from "./EntryFormToggle";
 
 const StyledEntry = styled.div`
     display: grid;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     margin: auto;
     justify-items: center;
     justify-self: center;
-    grid-template-areas: 'logo' 'form' 'form-toggle';
+    grid-template-areas: "logo" "form" "form-toggle";
     grid-template-rows: 1fr 3fr 0.5fr;
     align-content: center;
     background-color: white;
@@ -26,14 +26,15 @@ const Logo = styled.div`
     justify-content: flex-end;
     img {
         max-width: 150px;
+        height: auto;
     }
 `;
 
 class Entry extends Component {
-    state = { entryState: 'login' };
+    state = { entryState: "login" };
     toggleEntryState = () => {
         this.setState({
-            entryState: this.state.entryState == 'login' ? 'register' : 'login',
+            entryState: this.state.entryState == "login" ? "register" : "login"
         });
     };
     render() {

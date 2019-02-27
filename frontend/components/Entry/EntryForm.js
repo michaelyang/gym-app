@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import EntryButton from './EntryButton';
-import FloatingLabelInput from './FloatingLabelInput';
+import React, { Component } from "react";
+import styled from "styled-components";
+import EntryButton from "./EntryButton";
+import FloatingLabelInput from "./FloatingLabelInput";
 
-const loginFormTitle = 'Sign in';
-const registerFormTitle = 'Sign up';
+const loginFormTitle = "Sign in";
+const registerFormTitle = "Sign up";
 
 const StyledEntry = styled.div`
     grid-area: form;
@@ -23,25 +23,23 @@ const StyledEntry = styled.div`
         font-weight: 700;
         align-self: center;
         margin: 1rem;
-        flex-grow: 1;
+        flex: 0.5;
     }
     fieldset {
         width: 100%;
         padding: 0.5rem;
         border: 0;
         display: flex;
-        flex-grow: 1;
+        flex: 1;
         &[disabled] {
             opacity: 0.5;
         }
         article {
-            padding: 1.4rem 0;
-            label {
-            }
+            padding: 1.2rem 0;
         }
     }
     .outer-wrapper {
-        flex-grow: 3;
+        flex: 2;
         min-height: 200px;
         position: relative;
         overflow-x: hidden;
@@ -54,7 +52,7 @@ const StyledEntry = styled.div`
         width: 200%;
         position: absolute;
         top: 0;
-        left: ${props => (props.entrystate == 'login' ? '0' : '-100%')};
+        left: ${props => (props.entrystate == "login" ? "0" : "-100%")};
         transition-duration: 100ms;
         transition-timing-function: cubic-bezier(0.175, 0.665, 0.32, 1), linear;
         transition: left 0.4s ease;
@@ -68,12 +66,12 @@ const StyledEntry = styled.div`
 
 class EntryForm extends Component {
     state = {
-        currentEmail: '',
-        currentPassword: '',
-        newEmail: '',
-        newPassword: '',
-        confirmPassword: '',
-        name: '',
+        currentEmail: "",
+        currentPassword: "",
+        newEmail: "",
+        newPassword: "",
+        confirmPassword: "",
+        name: ""
     };
 
     saveToState = e => {
@@ -88,7 +86,7 @@ class EntryForm extends Component {
         return (
             <StyledEntry method="post" entrystate={this.props.entryState}>
                 <h2>
-                    {this.props.entryState == 'login'
+                    {this.props.entryState == "login"
                         ? loginFormTitle
                         : registerFormTitle}
                 </h2>
@@ -96,7 +94,8 @@ class EntryForm extends Component {
                     <div className="inner-wrapper">
                         <form method="post" className="pane" id="login">
                             <fieldset
-                                disabled={this.props.entryState != 'login'}>
+                                disabled={this.props.entryState != "login"}
+                            >
                                 <FloatingLabelInput
                                     id="currentEmail"
                                     name="currentEmail"
@@ -119,7 +118,8 @@ class EntryForm extends Component {
                         </form>
                         <form method="post" className="pane" id="register">
                             <fieldset
-                                disabled={this.props.entryState != 'register'}>
+                                disabled={this.props.entryState != "register"}
+                            >
                                 <FloatingLabelInput
                                     id="newEmail"
                                     name="newEmail"
