@@ -1,9 +1,9 @@
 import Entry from "../components/Entry/Entry";
 
 const Home = props => (
-  <>
-    <Entry />
-  </>
+    <>
+        <Entry />
+    </>
 );
 
 export default Home;
