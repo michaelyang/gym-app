@@ -1,6 +1,33 @@
 type User {
-  id: ID! @unique
-  name: String!
-  email: String! @unique
-  password: String!
+    id: ID! @unique
+    name: String!
+    email: String! @unique
+    password: String!
+}
+
+type WorkOut {
+    id: ID! @unique
+    name: String!
+}
+
+type Routine {
+    id: ID! @unique
+    name: String!
+    workOuts: [WorkOut!]
+}
+
+type RoutineSession {
+    datetime: DateTime!
+    user: User!
+    workOutSessions: [WorkOutSession!]
+}
+
+type WorkOutSession {
+    workOut: WorkOut!
+    workOutsets: [WorkOutSet!]
+}
+
+type WorkOutSet {
+    reps: Int!
+    weight: Int!
 }
