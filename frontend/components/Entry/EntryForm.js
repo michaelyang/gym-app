@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import EntryButton from "./EntryButton";
 import FloatingLabelInput from "./FloatingLabelInput";
+import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
 
 const loginFormTitle = "Sign in";
 const registerFormTitle = "Sign up";
@@ -78,13 +80,9 @@ class EntryForm extends Component {
         this.setState({ [e.target.name]: e.target.value });
     };
 
-    submitForm = () => {
-        document.getElementById(this.props.entryState).submit();
-    };
-
     render() {
         return (
-            <StyledEntry method="post" entrystate={this.props.entryState}>
+            <StyledEntry entrystate={this.props.entryState}>
                 <h2>
                     {this.props.entryState == "login"
                         ? loginFormTitle
@@ -92,76 +90,16 @@ class EntryForm extends Component {
                 </h2>
                 <div className="outer-wrapper">
                     <div className="inner-wrapper">
-                        <form method="post" className="pane" id="login">
-                            <fieldset
-                                disabled={this.props.entryState != "login"}
-                            >
-                                <FloatingLabelInput
-                                    id="currentEmail"
-                                    name="currentEmail"
-                                    type="email"
-                                    autoComplete="email"
-                                    label="Email Address"
-                                    value={this.state.email}
-                                    onChange={this.saveToState}
-                                />
-                                <FloatingLabelInput
-                                    id="currentPassword"
-                                    name="currentPassword"
-                                    type="password"
-                                    autoComplete="current-password"
-                                    label="Password"
-                                    value={this.state.password}
-                                    onChange={this.saveToState}
-                                />
-                            </fieldset>
-                        </form>
-                        <form method="post" className="pane" id="register">
-                            <fieldset
-                                disabled={this.props.entryState != "register"}
-                            >
-                                <FloatingLabelInput
-                                    id="newEmail"
-                                    name="newEmail"
-                                    type="email"
-                                    autoComplete="email"
-                                    label="Email Address"
-                                    value={this.state.email}
-                                    onChange={this.saveToState}
-                                />
-                                <FloatingLabelInput
-                                    id="newPassword"
-                                    name="newPassword"
-                                    type="password"
-                                    autoComplete="password"
-                                    label="Password"
-                                    value={this.state.password}
-                                    onChange={this.saveToState}
-                                />
-                                <FloatingLabelInput
-                                    id="confirmPassword"
-                                    name="confirmPassword"
-                                    type="password"
-                                    autoComplete="new-password"
-                                    label="Password"
-                                    value={this.state.password}
-                                    onChange={this.saveToState}
-                                />
-                                <FloatingLabelInput
-                                    id="name"
-                                    name="name"
-                                    type="text"
-                                    autoComplete="name"
-                                    label="Name"
-                                    placeholder="John Doe"
-                                    value={this.state.email}
-                                    onChange={this.saveToState}
-                                />
-                            </fieldset>
-                        </form>
+                        <LoginForm
+                            className="pane"
+                            entryState={this.props.entryState}
+                        />
+                        <RegisterForm
+                            className="pane"
+                            entryState={this.props.entryState}
+                        />
                     </div>
                 </div>
-                <EntryButton type="button" handleSubmit={this.submitForm} />
             </StyledEntry>
         );
     }

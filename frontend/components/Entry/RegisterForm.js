@@ -6,20 +6,24 @@ import FloatingLabelInput from "./FloatingLabelInput";
 import SubmitButton from "./SubmitButton";
 import { CURRENT_USER_QUERY } from "../User";
 
-const LOGIN_MUTATION = gql`
-    mutation LOGIN_MUTATION($email: String!, $password: String!) {
-        login(email: $email, password: $password) {
+const REGISTER_MUTATION = gql`
+    mutation REGISTER_MUTATION(
+        $email: String!
+        $password: String!
+        $name: String!
+    ) {
+        register(email: $email, password: $password, nameL: $name) {
             id
-            email
-            name
         }
     }
 `;
 
-class LoginForm extends Component {
+class RegisterForm extends Component {
     state = {
         email: "",
-        password: ""
+        password: "",
+        confirmPassword: "",
+        name: ""
     };
     saveToState = e => {
         this.setState({ [e.target.name]: e.target.value });
@@ -27,7 +31,7 @@ class LoginForm extends Component {
     render() {
         return (
             <Mutation
-                mutation={LOGIN_MUTATION}
+                mutation={REGISTER_MUTATION}
                 variables={this.state}
                 refetchQueries={[{ query: CURRENT_USER_QUERY }]}
             >
@@ -37,22 +41,21 @@ class LoginForm extends Component {
                         method="post"
                         onSubmit={async e => {
                             e.preventDefault();
-                            await login();
+                            await register();
                             this.setState({
                                 email: "",
-                                password: ""
+                                password: "",
+                                confirmPassword: "",
+                                name: ""
                             });
                         }}
                     >
                         <fieldset
-                            disabled={
-                                this.props.entryState != "login" && { loading }
-                            }
-                            aria-busy={loading}
+                            disabled={this.props.entryState != "register"}
                         >
                             <FloatingLabelInput
-                                id="email"
-                                name="email"
+                                id="newEmail"
+                                name="newEmail"
                                 type="email"
                                 autoComplete="email"
                                 label="Email Address"
@@ -60,12 +63,31 @@ class LoginForm extends Component {
                                 onChange={this.saveToState}
                             />
                             <FloatingLabelInput
-                                id="password"
-                                name="password"
+                                id="newPassword"
+                                name="newPassword"
                                 type="password"
-                                autoComplete="current-password"
+                                autoComplete="password"
                                 label="Password"
                                 value={this.state.password}
+                                onChange={this.saveToState}
+                            />
+                            <FloatingLabelInput
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                type="password"
+                                autoComplete="new-password"
+                                label="Password"
+                                value={this.state.password}
+                                onChange={this.saveToState}
+                            />
+                            <FloatingLabelInput
+                                id="name"
+                                name="name"
+                                type="text"
+                                autoComplete="name"
+                                label="Name"
+                                placeholder="John Doe"
+                                value={this.state.email}
                                 onChange={this.saveToState}
                             />
                         </fieldset>
@@ -77,4 +99,4 @@ class LoginForm extends Component {
     }
 }
 
-export default LoginForm;
+export default RegisterForm;
