@@ -7,14 +7,14 @@ const resolvers = {
             const { db } = ctx;
             const { user } = ctx.req;
             if (!user) {
-                throw new Error("Not Authenticated");
+                return null;
             }
             return user;
         }
     },
     Mutation: {
         async register(parents, args, ctx, info) {
-            const { name, email, password } = args;
+            const { email, password, name } = args;
             const hashedPassword = await bcrypt.hash(password, 10);
             const user = await ctx.db.mutation.createUser(
                 {
