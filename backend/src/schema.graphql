@@ -1,9 +1,51 @@
 # import * from './generated/prisma.graphql'
+type Message {
+    message: String
+}
+
+type User {
+    id: ID!
+    name: String!
+    email: String!
+    password: String!
+    routines: [Routine!]
+}
+
+type Routine {
+    id: ID!
+    name: String!
+    workouts: [Workout!]
+}
+
+type Workout {
+    id: ID!
+    name: String!
+}
+
+type RoutineSession {
+    datetime: DateTime!
+    user: User!
+    workoutSessions: [WorkoutSession!]
+}
+
+type WorkoutSession {
+    workout: Workout!
+    workoutsets: [WorkoutSet!]
+}
+
+type WorkoutSet {
+    reps: Int!
+    weight: Int!
+}
+
 type Query {
     currentUser: User
+    workouts(where: WorkoutWhereInput): [Workout]!
 }
 
 type Mutation {
-    register(name: String!, email: String!, password: String!): User!
+    register(email: String!, password: String!, name: String!): User!
     login(email: String!, password: String!): User!
+    logout: Message!
+    createWorkout(name: String!): Workout
 }

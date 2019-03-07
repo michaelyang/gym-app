@@ -3,31 +3,32 @@ type User {
     name: String!
     email: String! @unique
     password: String!
-}
-
-type WorkOut {
-    id: ID! @unique
-    name: String!
+    routines: [Routine!]
 }
 
 type Routine {
     id: ID! @unique
     name: String!
-    workOuts: [WorkOut!]
+    workouts: [Workout!]
+}
+
+type Workout {
+    id: ID! @unique
+    name: String!
 }
 
 type RoutineSession {
     datetime: DateTime!
     user: User!
-    workOutSessions: [WorkOutSession!]
+    workoutSessions: [WorkoutSession!]
 }
 
-type WorkOutSession {
-    workOut: WorkOut!
-    workOutsets: [WorkOutSet!]
+type WorkoutSession {
+    workout: Workout!
+    workoutsets: [WorkoutSet!]
 }
 
-type WorkOutSet {
+type WorkoutSet {
     reps: Int!
     weight: Int!
 }
