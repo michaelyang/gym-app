@@ -11,7 +11,7 @@ const StyledEntry = styled.div`
     justify-items: center;
     justify-self: center;
     grid-template-areas: "logo" "form" "form-toggle";
-    grid-template-rows: 1fr 3fr 0.5fr;
+    grid-template-rows: 0.5fr 3fr 0.25fr;
     align-content: center;
     background-color: white;
     max-width: 500px;

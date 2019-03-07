@@ -46,10 +46,11 @@ class LoginForm extends Component {
                     >
                         <fieldset
                             disabled={
-                                this.props.entryState != "login" && { loading }
+                                this.props.entryState != "login" || loading
                             }
                             aria-busy={loading}
                         >
+                            <Error error={error} />
                             <FloatingLabelInput
                                 id="email"
                                 name="email"
