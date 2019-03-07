@@ -1,5 +1,5 @@
 # source: https://us1.prisma.sh/michael-47ff10/weirdflex/dev
-# timestamp: Sun Mar 03 2019 10:16:18 GMT+0900 (KST)
+# timestamp: Tue Mar 05 2019 15:19:34 GMT+0900 (KST)
 
 type AggregateRoutine {
   count: Int!
@@ -13,15 +13,15 @@ type AggregateUser {
   count: Int!
 }
 
-type AggregateWorkOut {
+type AggregateWorkout {
   count: Int!
 }
 
-type AggregateWorkOutSession {
+type AggregateWorkoutSession {
   count: Int!
 }
 
-type AggregateWorkOutSet {
+type AggregateWorkoutSet {
   count: Int!
 }
 
@@ -39,32 +39,32 @@ Long can represent values between -(2^63) and 2^63 - 1.
 scalar Long
 
 type Mutation {
-  createRoutine(data: RoutineCreateInput!): Routine!
   createRoutineSession(data: RoutineSessionCreateInput!): RoutineSession!
-  createWorkOutSession(data: WorkOutSessionCreateInput!): WorkOutSession!
-  createWorkOutSet(data: WorkOutSetCreateInput!): WorkOutSet!
+  createWorkoutSet(data: WorkoutSetCreateInput!): WorkoutSet!
+  createWorkout(data: WorkoutCreateInput!): Workout!
   createUser(data: UserCreateInput!): User!
-  createWorkOut(data: WorkOutCreateInput!): WorkOut!
-  updateRoutine(data: RoutineUpdateInput!, where: RoutineWhereUniqueInput!): Routine
+  createWorkoutSession(data: WorkoutSessionCreateInput!): WorkoutSession!
+  createRoutine(data: RoutineCreateInput!): Routine!
+  updateWorkout(data: WorkoutUpdateInput!, where: WorkoutWhereUniqueInput!): Workout
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
-  updateWorkOut(data: WorkOutUpdateInput!, where: WorkOutWhereUniqueInput!): WorkOut
-  deleteRoutine(where: RoutineWhereUniqueInput!): Routine
+  updateRoutine(data: RoutineUpdateInput!, where: RoutineWhereUniqueInput!): Routine
+  deleteWorkout(where: WorkoutWhereUniqueInput!): Workout
   deleteUser(where: UserWhereUniqueInput!): User
-  deleteWorkOut(where: WorkOutWhereUniqueInput!): WorkOut
-  upsertRoutine(where: RoutineWhereUniqueInput!, create: RoutineCreateInput!, update: RoutineUpdateInput!): Routine!
+  deleteRoutine(where: RoutineWhereUniqueInput!): Routine
+  upsertWorkout(where: WorkoutWhereUniqueInput!, create: WorkoutCreateInput!, update: WorkoutUpdateInput!): Workout!
   upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
-  upsertWorkOut(where: WorkOutWhereUniqueInput!, create: WorkOutCreateInput!, update: WorkOutUpdateInput!): WorkOut!
-  updateManyRoutines(data: RoutineUpdateManyMutationInput!, where: RoutineWhereInput): BatchPayload!
+  upsertRoutine(where: RoutineWhereUniqueInput!, create: RoutineCreateInput!, update: RoutineUpdateInput!): Routine!
   updateManyRoutineSessions(data: RoutineSessionUpdateManyMutationInput!, where: RoutineSessionWhereInput): BatchPayload!
-  updateManyWorkOutSets(data: WorkOutSetUpdateManyMutationInput!, where: WorkOutSetWhereInput): BatchPayload!
+  updateManyWorkoutSets(data: WorkoutSetUpdateManyMutationInput!, where: WorkoutSetWhereInput): BatchPayload!
+  updateManyWorkouts(data: WorkoutUpdateManyMutationInput!, where: WorkoutWhereInput): BatchPayload!
   updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
-  updateManyWorkOuts(data: WorkOutUpdateManyMutationInput!, where: WorkOutWhereInput): BatchPayload!
-  deleteManyRoutines(where: RoutineWhereInput): BatchPayload!
+  updateManyRoutines(data: RoutineUpdateManyMutationInput!, where: RoutineWhereInput): BatchPayload!
   deleteManyRoutineSessions(where: RoutineSessionWhereInput): BatchPayload!
-  deleteManyWorkOutSessions(where: WorkOutSessionWhereInput): BatchPayload!
-  deleteManyWorkOutSets(where: WorkOutSetWhereInput): BatchPayload!
+  deleteManyWorkoutSets(where: WorkoutSetWhereInput): BatchPayload!
+  deleteManyWorkouts(where: WorkoutWhereInput): BatchPayload!
   deleteManyUsers(where: UserWhereInput): BatchPayload!
-  deleteManyWorkOuts(where: WorkOutWhereInput): BatchPayload!
+  deleteManyWorkoutSessions(where: WorkoutSessionWhereInput): BatchPayload!
+  deleteManyRoutines(where: RoutineWhereInput): BatchPayload!
 }
 
 enum MutationType {
@@ -95,21 +95,21 @@ type PageInfo {
 }
 
 type Query {
-  routines(where: RoutineWhereInput, orderBy: RoutineOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Routine]!
   routineSessions(where: RoutineSessionWhereInput, orderBy: RoutineSessionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [RoutineSession]!
-  workOutSessions(where: WorkOutSessionWhereInput, orderBy: WorkOutSessionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [WorkOutSession]!
-  workOutSets(where: WorkOutSetWhereInput, orderBy: WorkOutSetOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [WorkOutSet]!
+  workoutSets(where: WorkoutSetWhereInput, orderBy: WorkoutSetOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [WorkoutSet]!
+  workouts(where: WorkoutWhereInput, orderBy: WorkoutOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Workout]!
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
-  workOuts(where: WorkOutWhereInput, orderBy: WorkOutOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [WorkOut]!
-  routine(where: RoutineWhereUniqueInput!): Routine
+  workoutSessions(where: WorkoutSessionWhereInput, orderBy: WorkoutSessionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [WorkoutSession]!
+  routines(where: RoutineWhereInput, orderBy: RoutineOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Routine]!
+  workout(where: WorkoutWhereUniqueInput!): Workout
   user(where: UserWhereUniqueInput!): User
-  workOut(where: WorkOutWhereUniqueInput!): WorkOut
-  routinesConnection(where: RoutineWhereInput, orderBy: RoutineOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): RoutineConnection!
+  routine(where: RoutineWhereUniqueInput!): Routine
   routineSessionsConnection(where: RoutineSessionWhereInput, orderBy: RoutineSessionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): RoutineSessionConnection!
-  workOutSessionsConnection(where: WorkOutSessionWhereInput, orderBy: WorkOutSessionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): WorkOutSessionConnection!
-  workOutSetsConnection(where: WorkOutSetWhereInput, orderBy: WorkOutSetOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): WorkOutSetConnection!
+  workoutSetsConnection(where: WorkoutSetWhereInput, orderBy: WorkoutSetOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): WorkoutSetConnection!
+  workoutsConnection(where: WorkoutWhereInput, orderBy: WorkoutOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): WorkoutConnection!
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
-  workOutsConnection(where: WorkOutWhereInput, orderBy: WorkOutOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): WorkOutConnection!
+  workoutSessionsConnection(where: WorkoutSessionWhereInput, orderBy: WorkoutSessionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): WorkoutSessionConnection!
+  routinesConnection(where: RoutineWhereInput, orderBy: RoutineOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): RoutineConnection!
 
   """Fetches an object given its ID"""
   node(
@@ -121,7 +121,7 @@ type Query {
 type Routine implements Node {
   id: ID!
   name: String!
-  workOuts(where: WorkOutWhereInput, orderBy: WorkOutOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [WorkOut!]
+  workouts(where: WorkoutWhereInput, orderBy: WorkoutOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Workout!]
 }
 
 """A connection to a list of items."""
@@ -136,7 +136,12 @@ type RoutineConnection {
 
 input RoutineCreateInput {
   name: String!
-  workOuts: WorkOutCreateManyInput
+  workouts: WorkoutCreateManyInput
+}
+
+input RoutineCreateManyInput {
+  create: [RoutineCreateInput!]
+  connect: [RoutineWhereUniqueInput!]
 }
 
 """An edge in a connection."""
@@ -164,10 +169,101 @@ type RoutinePreviousValues {
   name: String!
 }
 
+input RoutineScalarWhereInput {
+  """Logical AND on all given filters."""
+  AND: [RoutineScalarWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [RoutineScalarWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [RoutineScalarWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  name: String
+
+  """All values that are not equal to given value."""
+  name_not: String
+
+  """All values that are contained in given list."""
+  name_in: [String!]
+
+  """All values that are not contained in given list."""
+  name_not_in: [String!]
+
+  """All values less than the given value."""
+  name_lt: String
+
+  """All values less than or equal the given value."""
+  name_lte: String
+
+  """All values greater than the given value."""
+  name_gt: String
+
+  """All values greater than or equal the given value."""
+  name_gte: String
+
+  """All values containing the given string."""
+  name_contains: String
+
+  """All values not containing the given string."""
+  name_not_contains: String
+
+  """All values starting with the given string."""
+  name_starts_with: String
+
+  """All values not starting with the given string."""
+  name_not_starts_with: String
+
+  """All values ending with the given string."""
+  name_ends_with: String
+
+  """All values not ending with the given string."""
+  name_not_ends_with: String
+}
+
 type RoutineSession {
   datetime: DateTime!
   user: User!
-  workOutSessions(where: WorkOutSessionWhereInput, orderBy: WorkOutSessionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [WorkOutSession!]
+  workoutSessions(where: WorkoutSessionWhereInput, orderBy: WorkoutSessionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [WorkoutSession!]
 }
 
 """A connection to a list of items."""
@@ -183,7 +279,7 @@ type RoutineSessionConnection {
 input RoutineSessionCreateInput {
   datetime: DateTime!
   user: UserCreateOneInput!
-  workOutSessions: WorkOutSessionCreateManyInput
+  workoutSessions: WorkoutSessionCreateManyInput
 }
 
 """An edge in a connection."""
@@ -285,9 +381,9 @@ input RoutineSessionWhereInput {
   """All values greater than or equal the given value."""
   datetime_gte: DateTime
   user: UserWhereInput
-  workOutSessions_every: WorkOutSessionWhereInput
-  workOutSessions_some: WorkOutSessionWhereInput
-  workOutSessions_none: WorkOutSessionWhereInput
+  workoutSessions_every: WorkoutSessionWhereInput
+  workoutSessions_some: WorkoutSessionWhereInput
+  workoutSessions_none: WorkoutSessionWhereInput
 }
 
 type RoutineSubscriptionPayload {
@@ -329,13 +425,50 @@ input RoutineSubscriptionWhereInput {
   node: RoutineWhereInput
 }
 
+input RoutineUpdateDataInput {
+  name: String
+  workouts: WorkoutUpdateManyInput
+}
+
 input RoutineUpdateInput {
   name: String
-  workOuts: WorkOutUpdateManyInput
+  workouts: WorkoutUpdateManyInput
+}
+
+input RoutineUpdateManyDataInput {
+  name: String
+}
+
+input RoutineUpdateManyInput {
+  create: [RoutineCreateInput!]
+  connect: [RoutineWhereUniqueInput!]
+  set: [RoutineWhereUniqueInput!]
+  disconnect: [RoutineWhereUniqueInput!]
+  delete: [RoutineWhereUniqueInput!]
+  update: [RoutineUpdateWithWhereUniqueNestedInput!]
+  updateMany: [RoutineUpdateManyWithWhereNestedInput!]
+  deleteMany: [RoutineScalarWhereInput!]
+  upsert: [RoutineUpsertWithWhereUniqueNestedInput!]
 }
 
 input RoutineUpdateManyMutationInput {
   name: String
+}
+
+input RoutineUpdateManyWithWhereNestedInput {
+  where: RoutineScalarWhereInput!
+  data: RoutineUpdateManyDataInput!
+}
+
+input RoutineUpdateWithWhereUniqueNestedInput {
+  where: RoutineWhereUniqueInput!
+  data: RoutineUpdateDataInput!
+}
+
+input RoutineUpsertWithWhereUniqueNestedInput {
+  where: RoutineWhereUniqueInput!
+  update: RoutineUpdateDataInput!
+  create: RoutineCreateInput!
 }
 
 input RoutineWhereInput {
@@ -427,9 +560,9 @@ input RoutineWhereInput {
 
   """All values not ending with the given string."""
   name_not_ends_with: String
-  workOuts_every: WorkOutWhereInput
-  workOuts_some: WorkOutWhereInput
-  workOuts_none: WorkOutWhereInput
+  workouts_every: WorkoutWhereInput
+  workouts_some: WorkoutWhereInput
+  workouts_none: WorkoutWhereInput
 }
 
 input RoutineWhereUniqueInput {
@@ -437,12 +570,12 @@ input RoutineWhereUniqueInput {
 }
 
 type Subscription {
-  routine(where: RoutineSubscriptionWhereInput): RoutineSubscriptionPayload
   routineSession(where: RoutineSessionSubscriptionWhereInput): RoutineSessionSubscriptionPayload
-  workOutSession(where: WorkOutSessionSubscriptionWhereInput): WorkOutSessionSubscriptionPayload
-  workOutSet(where: WorkOutSetSubscriptionWhereInput): WorkOutSetSubscriptionPayload
+  workoutSet(where: WorkoutSetSubscriptionWhereInput): WorkoutSetSubscriptionPayload
+  workout(where: WorkoutSubscriptionWhereInput): WorkoutSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
-  workOut(where: WorkOutSubscriptionWhereInput): WorkOutSubscriptionPayload
+  workoutSession(where: WorkoutSessionSubscriptionWhereInput): WorkoutSessionSubscriptionPayload
+  routine(where: RoutineSubscriptionWhereInput): RoutineSubscriptionPayload
 }
 
 type User implements Node {
@@ -450,6 +583,7 @@ type User implements Node {
   name: String!
   email: String!
   password: String!
+  routines(where: RoutineWhereInput, orderBy: RoutineOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Routine!]
 }
 
 """A connection to a list of items."""
@@ -466,6 +600,7 @@ input UserCreateInput {
   name: String!
   email: String!
   password: String!
+  routines: RoutineCreateManyInput
 }
 
 input UserCreateOneInput {
@@ -547,6 +682,7 @@ input UserUpdateInput {
   name: String
   email: String
   password: String
+  routines: RoutineUpdateManyInput
 }
 
 input UserUpdateManyMutationInput {
@@ -724,6 +860,9 @@ input UserWhereInput {
 
   """All values not ending with the given string."""
   password_not_ends_with: String
+  routines_every: RoutineWhereInput
+  routines_some: RoutineWhereInput
+  routines_none: RoutineWhereInput
 }
 
 input UserWhereUniqueInput {
@@ -731,45 +870,45 @@ input UserWhereUniqueInput {
   email: String
 }
 
-type WorkOut implements Node {
+type Workout implements Node {
   id: ID!
   name: String!
 }
 
 """A connection to a list of items."""
-type WorkOutConnection {
+type WorkoutConnection {
   """Information to aid in pagination."""
   pageInfo: PageInfo!
 
   """A list of edges."""
-  edges: [WorkOutEdge]!
-  aggregate: AggregateWorkOut!
+  edges: [WorkoutEdge]!
+  aggregate: AggregateWorkout!
 }
 
-input WorkOutCreateInput {
+input WorkoutCreateInput {
   name: String!
 }
 
-input WorkOutCreateManyInput {
-  create: [WorkOutCreateInput!]
-  connect: [WorkOutWhereUniqueInput!]
+input WorkoutCreateManyInput {
+  create: [WorkoutCreateInput!]
+  connect: [WorkoutWhereUniqueInput!]
 }
 
-input WorkOutCreateOneInput {
-  create: WorkOutCreateInput
-  connect: WorkOutWhereUniqueInput
+input WorkoutCreateOneInput {
+  create: WorkoutCreateInput
+  connect: WorkoutWhereUniqueInput
 }
 
 """An edge in a connection."""
-type WorkOutEdge {
+type WorkoutEdge {
   """The item at the end of the edge."""
-  node: WorkOut!
+  node: Workout!
 
   """A cursor for use in pagination."""
   cursor: String!
 }
 
-enum WorkOutOrderByInput {
+enum WorkoutOrderByInput {
   id_ASC
   id_DESC
   name_ASC
@@ -780,20 +919,20 @@ enum WorkOutOrderByInput {
   createdAt_DESC
 }
 
-type WorkOutPreviousValues {
+type WorkoutPreviousValues {
   id: ID!
   name: String!
 }
 
-input WorkOutScalarWhereInput {
+input WorkoutScalarWhereInput {
   """Logical AND on all given filters."""
-  AND: [WorkOutScalarWhereInput!]
+  AND: [WorkoutScalarWhereInput!]
 
   """Logical OR on all given filters."""
-  OR: [WorkOutScalarWhereInput!]
+  OR: [WorkoutScalarWhereInput!]
 
   """Logical NOT on all given filters combined by AND."""
-  NOT: [WorkOutScalarWhereInput!]
+  NOT: [WorkoutScalarWhereInput!]
   id: ID
 
   """All values that are not equal to given value."""
@@ -876,40 +1015,40 @@ input WorkOutScalarWhereInput {
   name_not_ends_with: String
 }
 
-type WorkOutSession {
-  workOut: WorkOut!
-  workOutsets(where: WorkOutSetWhereInput, orderBy: WorkOutSetOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [WorkOutSet!]
+type WorkoutSession {
+  workout: Workout!
+  workoutsets(where: WorkoutSetWhereInput, orderBy: WorkoutSetOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [WorkoutSet!]
 }
 
 """A connection to a list of items."""
-type WorkOutSessionConnection {
+type WorkoutSessionConnection {
   """Information to aid in pagination."""
   pageInfo: PageInfo!
 
   """A list of edges."""
-  edges: [WorkOutSessionEdge]!
-  aggregate: AggregateWorkOutSession!
+  edges: [WorkoutSessionEdge]!
+  aggregate: AggregateWorkoutSession!
 }
 
-input WorkOutSessionCreateInput {
-  workOut: WorkOutCreateOneInput!
-  workOutsets: WorkOutSetCreateManyInput
+input WorkoutSessionCreateInput {
+  workout: WorkoutCreateOneInput!
+  workoutsets: WorkoutSetCreateManyInput
 }
 
-input WorkOutSessionCreateManyInput {
-  create: [WorkOutSessionCreateInput!]
+input WorkoutSessionCreateManyInput {
+  create: [WorkoutSessionCreateInput!]
 }
 
 """An edge in a connection."""
-type WorkOutSessionEdge {
+type WorkoutSessionEdge {
   """The item at the end of the edge."""
-  node: WorkOutSession!
+  node: WorkoutSession!
 
   """A cursor for use in pagination."""
   cursor: String!
 }
 
-enum WorkOutSessionOrderByInput {
+enum WorkoutSessionOrderByInput {
   id_ASC
   id_DESC
   updatedAt_ASC
@@ -918,21 +1057,21 @@ enum WorkOutSessionOrderByInput {
   createdAt_DESC
 }
 
-type WorkOutSessionSubscriptionPayload {
+type WorkoutSessionSubscriptionPayload {
   mutation: MutationType!
-  node: WorkOutSession
+  node: WorkoutSession
   updatedFields: [String!]
 }
 
-input WorkOutSessionSubscriptionWhereInput {
+input WorkoutSessionSubscriptionWhereInput {
   """Logical AND on all given filters."""
-  AND: [WorkOutSessionSubscriptionWhereInput!]
+  AND: [WorkoutSessionSubscriptionWhereInput!]
 
   """Logical OR on all given filters."""
-  OR: [WorkOutSessionSubscriptionWhereInput!]
+  OR: [WorkoutSessionSubscriptionWhereInput!]
 
   """Logical NOT on all given filters combined by AND."""
-  NOT: [WorkOutSessionSubscriptionWhereInput!]
+  NOT: [WorkoutSessionSubscriptionWhereInput!]
 
   """
   The subscription event gets dispatched when it's listed in mutation_in
@@ -953,58 +1092,58 @@ input WorkOutSessionSubscriptionWhereInput {
   The subscription event gets only dispatched when some of the field names included in this list have been updated
   """
   updatedFields_contains_some: [String!]
-  node: WorkOutSessionWhereInput
+  node: WorkoutSessionWhereInput
 }
 
-input WorkOutSessionWhereInput {
+input WorkoutSessionWhereInput {
   """Logical AND on all given filters."""
-  AND: [WorkOutSessionWhereInput!]
+  AND: [WorkoutSessionWhereInput!]
 
   """Logical OR on all given filters."""
-  OR: [WorkOutSessionWhereInput!]
+  OR: [WorkoutSessionWhereInput!]
 
   """Logical NOT on all given filters combined by AND."""
-  NOT: [WorkOutSessionWhereInput!]
-  workOut: WorkOutWhereInput
-  workOutsets_every: WorkOutSetWhereInput
-  workOutsets_some: WorkOutSetWhereInput
-  workOutsets_none: WorkOutSetWhereInput
+  NOT: [WorkoutSessionWhereInput!]
+  workout: WorkoutWhereInput
+  workoutsets_every: WorkoutSetWhereInput
+  workoutsets_some: WorkoutSetWhereInput
+  workoutsets_none: WorkoutSetWhereInput
 }
 
-type WorkOutSet {
+type WorkoutSet {
   reps: Int!
   weight: Int!
 }
 
 """A connection to a list of items."""
-type WorkOutSetConnection {
+type WorkoutSetConnection {
   """Information to aid in pagination."""
   pageInfo: PageInfo!
 
   """A list of edges."""
-  edges: [WorkOutSetEdge]!
-  aggregate: AggregateWorkOutSet!
+  edges: [WorkoutSetEdge]!
+  aggregate: AggregateWorkoutSet!
 }
 
-input WorkOutSetCreateInput {
+input WorkoutSetCreateInput {
   reps: Int!
   weight: Int!
 }
 
-input WorkOutSetCreateManyInput {
-  create: [WorkOutSetCreateInput!]
+input WorkoutSetCreateManyInput {
+  create: [WorkoutSetCreateInput!]
 }
 
 """An edge in a connection."""
-type WorkOutSetEdge {
+type WorkoutSetEdge {
   """The item at the end of the edge."""
-  node: WorkOutSet!
+  node: WorkoutSet!
 
   """A cursor for use in pagination."""
   cursor: String!
 }
 
-enum WorkOutSetOrderByInput {
+enum WorkoutSetOrderByInput {
   reps_ASC
   reps_DESC
   weight_ASC
@@ -1017,27 +1156,27 @@ enum WorkOutSetOrderByInput {
   createdAt_DESC
 }
 
-type WorkOutSetPreviousValues {
+type WorkoutSetPreviousValues {
   reps: Int!
   weight: Int!
 }
 
-type WorkOutSetSubscriptionPayload {
+type WorkoutSetSubscriptionPayload {
   mutation: MutationType!
-  node: WorkOutSet
+  node: WorkoutSet
   updatedFields: [String!]
-  previousValues: WorkOutSetPreviousValues
+  previousValues: WorkoutSetPreviousValues
 }
 
-input WorkOutSetSubscriptionWhereInput {
+input WorkoutSetSubscriptionWhereInput {
   """Logical AND on all given filters."""
-  AND: [WorkOutSetSubscriptionWhereInput!]
+  AND: [WorkoutSetSubscriptionWhereInput!]
 
   """Logical OR on all given filters."""
-  OR: [WorkOutSetSubscriptionWhereInput!]
+  OR: [WorkoutSetSubscriptionWhereInput!]
 
   """Logical NOT on all given filters combined by AND."""
-  NOT: [WorkOutSetSubscriptionWhereInput!]
+  NOT: [WorkoutSetSubscriptionWhereInput!]
 
   """
   The subscription event gets dispatched when it's listed in mutation_in
@@ -1058,23 +1197,23 @@ input WorkOutSetSubscriptionWhereInput {
   The subscription event gets only dispatched when some of the field names included in this list have been updated
   """
   updatedFields_contains_some: [String!]
-  node: WorkOutSetWhereInput
+  node: WorkoutSetWhereInput
 }
 
-input WorkOutSetUpdateManyMutationInput {
+input WorkoutSetUpdateManyMutationInput {
   reps: Int
   weight: Int
 }
 
-input WorkOutSetWhereInput {
+input WorkoutSetWhereInput {
   """Logical AND on all given filters."""
-  AND: [WorkOutSetWhereInput!]
+  AND: [WorkoutSetWhereInput!]
 
   """Logical OR on all given filters."""
-  OR: [WorkOutSetWhereInput!]
+  OR: [WorkoutSetWhereInput!]
 
   """Logical NOT on all given filters combined by AND."""
-  NOT: [WorkOutSetWhereInput!]
+  NOT: [WorkoutSetWhereInput!]
   reps: Int
 
   """All values that are not equal to given value."""
@@ -1121,22 +1260,22 @@ input WorkOutSetWhereInput {
   weight_gte: Int
 }
 
-type WorkOutSubscriptionPayload {
+type WorkoutSubscriptionPayload {
   mutation: MutationType!
-  node: WorkOut
+  node: Workout
   updatedFields: [String!]
-  previousValues: WorkOutPreviousValues
+  previousValues: WorkoutPreviousValues
 }
 
-input WorkOutSubscriptionWhereInput {
+input WorkoutSubscriptionWhereInput {
   """Logical AND on all given filters."""
-  AND: [WorkOutSubscriptionWhereInput!]
+  AND: [WorkoutSubscriptionWhereInput!]
 
   """Logical OR on all given filters."""
-  OR: [WorkOutSubscriptionWhereInput!]
+  OR: [WorkoutSubscriptionWhereInput!]
 
   """Logical NOT on all given filters combined by AND."""
-  NOT: [WorkOutSubscriptionWhereInput!]
+  NOT: [WorkoutSubscriptionWhereInput!]
 
   """
   The subscription event gets dispatched when it's listed in mutation_in
@@ -1157,62 +1296,62 @@ input WorkOutSubscriptionWhereInput {
   The subscription event gets only dispatched when some of the field names included in this list have been updated
   """
   updatedFields_contains_some: [String!]
-  node: WorkOutWhereInput
+  node: WorkoutWhereInput
 }
 
-input WorkOutUpdateDataInput {
+input WorkoutUpdateDataInput {
   name: String
 }
 
-input WorkOutUpdateInput {
+input WorkoutUpdateInput {
   name: String
 }
 
-input WorkOutUpdateManyDataInput {
+input WorkoutUpdateManyDataInput {
   name: String
 }
 
-input WorkOutUpdateManyInput {
-  create: [WorkOutCreateInput!]
-  connect: [WorkOutWhereUniqueInput!]
-  set: [WorkOutWhereUniqueInput!]
-  disconnect: [WorkOutWhereUniqueInput!]
-  delete: [WorkOutWhereUniqueInput!]
-  update: [WorkOutUpdateWithWhereUniqueNestedInput!]
-  updateMany: [WorkOutUpdateManyWithWhereNestedInput!]
-  deleteMany: [WorkOutScalarWhereInput!]
-  upsert: [WorkOutUpsertWithWhereUniqueNestedInput!]
+input WorkoutUpdateManyInput {
+  create: [WorkoutCreateInput!]
+  connect: [WorkoutWhereUniqueInput!]
+  set: [WorkoutWhereUniqueInput!]
+  disconnect: [WorkoutWhereUniqueInput!]
+  delete: [WorkoutWhereUniqueInput!]
+  update: [WorkoutUpdateWithWhereUniqueNestedInput!]
+  updateMany: [WorkoutUpdateManyWithWhereNestedInput!]
+  deleteMany: [WorkoutScalarWhereInput!]
+  upsert: [WorkoutUpsertWithWhereUniqueNestedInput!]
 }
 
-input WorkOutUpdateManyMutationInput {
+input WorkoutUpdateManyMutationInput {
   name: String
 }
 
-input WorkOutUpdateManyWithWhereNestedInput {
-  where: WorkOutScalarWhereInput!
-  data: WorkOutUpdateManyDataInput!
+input WorkoutUpdateManyWithWhereNestedInput {
+  where: WorkoutScalarWhereInput!
+  data: WorkoutUpdateManyDataInput!
 }
 
-input WorkOutUpdateWithWhereUniqueNestedInput {
-  where: WorkOutWhereUniqueInput!
-  data: WorkOutUpdateDataInput!
+input WorkoutUpdateWithWhereUniqueNestedInput {
+  where: WorkoutWhereUniqueInput!
+  data: WorkoutUpdateDataInput!
 }
 
-input WorkOutUpsertWithWhereUniqueNestedInput {
-  where: WorkOutWhereUniqueInput!
-  update: WorkOutUpdateDataInput!
-  create: WorkOutCreateInput!
+input WorkoutUpsertWithWhereUniqueNestedInput {
+  where: WorkoutWhereUniqueInput!
+  update: WorkoutUpdateDataInput!
+  create: WorkoutCreateInput!
 }
 
-input WorkOutWhereInput {
+input WorkoutWhereInput {
   """Logical AND on all given filters."""
-  AND: [WorkOutWhereInput!]
+  AND: [WorkoutWhereInput!]
 
   """Logical OR on all given filters."""
-  OR: [WorkOutWhereInput!]
+  OR: [WorkoutWhereInput!]
 
   """Logical NOT on all given filters combined by AND."""
-  NOT: [WorkOutWhereInput!]
+  NOT: [WorkoutWhereInput!]
   id: ID
 
   """All values that are not equal to given value."""
@@ -1295,6 +1434,6 @@ input WorkOutWhereInput {
   name_not_ends_with: String
 }
 
-input WorkOutWhereUniqueInput {
+input WorkoutWhereUniqueInput {
   id: ID
 }
