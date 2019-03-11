@@ -12,7 +12,9 @@ const typeDefs = importSchema("src/schema.graphql");
 const schema = makeExecutableSchema({
     typeDefs,
     resolvers,
-    resolverValidationOptions: { requireResolversForResolveType: false }
+    resolverValidationOptions: { requireResolversForResolveType: false },
+    introspection: true,
+    playground: true
 });
 
 const getUser = token => {
