@@ -35,8 +35,9 @@ const server = new ApolloServer({
 
 const corsOptions = {
     credentials: true,
-    origin: "http://localhost:7777"
+    origin: process.env.FRONTEND_URL
 };
+
 const app = express();
 app.use(cookieParser());
 app.use((req, res, next) => {
