@@ -1,4 +1,3 @@
-import Link from "next/link";
 import styled from "styled-components";
 import NavBar from "../Nav/NavBar";
 import Menu from "../Nav/Menu";
