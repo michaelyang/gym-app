@@ -1,6 +1,7 @@
-endpoint: ${env:PRISMA_ENDPOINT}
+#endpoint: ${env:PRISMA_ENDPOINT}
+endpoint: https://weirdflex-prod-cecc67497b.herokuapp.com/weirdflex-prod/prod
 datamodel: datamodel.prisma
-#secret: ${env:PRISMA_SECRET}
+secret: ${env:PRISMA_SECRET}
 hooks:
-  post-deploy:
-    - graphql get-schema -p prisma
+    post-deploy:
+        - graphql get-schema -p prisma
