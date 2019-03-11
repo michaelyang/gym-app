@@ -1,5 +1,4 @@
-#endpoint: ${env:PRISMA_ENDPOINT}
-endpoint: https://weirdflex-prod-cecc67497b.herokuapp.com/weirdflex-prod/prod
+endpoint: ${env:PRISMA_ENDPOINT}
 datamodel: datamodel.prisma
 secret: ${env:PRISMA_SECRET}
 hooks:
