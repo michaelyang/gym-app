@@ -12,7 +12,7 @@ const REGISTER_MUTATION = gql`
         $password: String!
         $name: String!
     ) {
-        register(email: $email, password: $password, nameL: $name) {
+        register(email: $email, password: $password, name: $name) {
             id
         }
     }
@@ -20,8 +20,8 @@ const REGISTER_MUTATION = gql`
 
 class RegisterForm extends Component {
     state = {
-        email: "",
-        password: "",
+        newEmail: "",
+        newPassword: "",
         confirmPassword: "",
         name: ""
     };
@@ -32,10 +32,14 @@ class RegisterForm extends Component {
         return (
             <Mutation
                 mutation={REGISTER_MUTATION}
-                variables={this.state}
+                variables={{
+                    email: this.state.newEmail,
+                    password: this.state.newPassword,
+                    name: this.state.name
+                }}
                 refetchQueries={[{ query: CURRENT_USER_QUERY }]}
             >
-                {(login, { error, loading }) => (
+                {(register, { error, loading }) => (
                     <form
                         className="pane"
                         method="post"
@@ -44,15 +48,18 @@ class RegisterForm extends Component {
                             await register();
                             this.setState({
                                 email: "",
-                                password: "",
+                                newPassword: "",
                                 confirmPassword: "",
                                 name: ""
                             });
                         }}
                     >
                         <fieldset
-                            disabled={this.props.entryState != "register"}
+                            disabled={
+                                this.props.entryState != "register" || loading
+                            }
                         >
+                            <Error error={error} />
                             <FloatingLabelInput
                                 id="newEmail"
                                 name="newEmail"
@@ -76,8 +83,8 @@ class RegisterForm extends Component {
                                 name="confirmPassword"
                                 type="password"
                                 autoComplete="new-password"
-                                label="Password"
-                                value={this.state.password}
+                                label="Confirm Password"
+                                value={this.state.confirmPassword}
                                 onChange={this.saveToState}
                             />
                             <FloatingLabelInput
@@ -87,7 +94,7 @@ class RegisterForm extends Component {
                                 autoComplete="name"
                                 label="Name"
                                 placeholder="John Doe"
-                                value={this.state.email}
+                                value={this.state.name}
                                 onChange={this.saveToState}
                             />
                         </fieldset>

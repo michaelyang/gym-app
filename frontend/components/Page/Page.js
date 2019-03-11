@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import Meta from './Meta';
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
-import Header from './Header';
+import React, { Component } from "react";
+import Meta from "./Meta";
+import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
+import Header from "./Header";
 
 const theme = {
-    mainRed: '#cb202d',
-    red: '#FF0000',
-    black: '#2d2d2d',
-    grey: '#3A3A3A',
-    lightgrey: '#E1E1E1',
-    offWhite: '#f4f4f2',
-    maxWidth: '1000px',
+    mainRed: "#cb202d",
+    red: "#e04646",
+    black: "#2d2d2d",
+    grey: "#f6f8fa",
+    lightgrey: "#E1E1E1",
+    offWhite: "#f4f4f2",
+    maxWidth: "1000px"
 };
 
 const GlobalStyle = createGlobalStyle`
@@ -54,7 +54,7 @@ const GlobalStyle = createGlobalStyle`
         font-size: 1.5rem;
         line-height: 2;
         font-family: 'Karla';
-        background: ${props => props.theme.mainRed};;
+        background: ${props => props.theme.grey};
         color: ${props => props.theme.black};
         height: 100%;
         overflow-y: scroll;
@@ -69,7 +69,7 @@ const GlobalStyle = createGlobalStyle`
 const Inner = styled.div`
     max-width: ${props => props.theme.maxWidth};
     margin: 0 auto;
-    min-height: 100vh;
+    padding-top: 48px;
     display: flex;
     align-items: center;
 `;

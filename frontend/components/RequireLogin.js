@@ -7,7 +7,7 @@ const RequireLogin = props => (
     <Query query={CURRENT_USER_QUERY}>
         {({ data, loading }) => {
             if (loading) return <> </>;
-            if (!data || !data.currentUser) {
+            if (!data.currentUser) {
                 return <Entry />;
             }
             return props.children;

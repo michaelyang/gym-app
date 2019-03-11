@@ -1,30 +1,20 @@
-import Link from "next/link";
 import styled from "styled-components";
-import Logo from "./Logo";
-import Nav from "../Nav/Nav";
+import NavBar from "../Nav/NavBar";
+import Menu from "../Nav/Menu";
 
 const StyledHeader = styled.header`
-  .bar {
-    position: absolute;
-    top: 0;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    justify-content: space-between;
-    align-items: stretch;
-    @media (max-width: 1300px) {
-      grid-template-columns: 1fr;
-      justify-content: center;
-    }
-  }
+    width: 100%;
+    height: 48px;
+    position: fixed;
+    top: 0px;
+    background: #e04646;
 `;
 
 const Header = () => (
-  <StyledHeader>
-    <div className="bar">
-      <Logo />
-      <Nav hidden />
-    </div>
-  </StyledHeader>
+    <StyledHeader>
+        <Menu />
+        <NavBar />
+    </StyledHeader>
 );
 
 export default Header;
