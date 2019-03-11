@@ -23,5 +23,10 @@
         "nodemon": "^1.18.10"
     },
     "author": "michael-yang",
-    "license": "MIT"
+    "license": "MIT",
+    "babel": {
+        "presets": [
+            "env"
+        ]
+    }
 }
