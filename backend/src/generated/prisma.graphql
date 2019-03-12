@@ -1,5 +1,5 @@
-# source: https://weirdflex-prod-cecc67497b.herokuapp.com/weirdflex-prod/prod
-# timestamp: Mon Mar 11 2019 03:41:22 GMT-0400 (EDT)
+# source: https://us1.prisma.sh/michael-47ff10/weirdflex-test/dev
+# timestamp: Mon Mar 11 2019 22:00:45 GMT-0400 (EDT)
 
 type AggregateRoutine {
   count: Int!
@@ -442,6 +442,7 @@ input RoutineUpdateManyDataInput {
 input RoutineUpdateManyInput {
   create: [RoutineCreateInput!]
   connect: [RoutineWhereUniqueInput!]
+  set: [RoutineWhereUniqueInput!]
   disconnect: [RoutineWhereUniqueInput!]
   delete: [RoutineWhereUniqueInput!]
   update: [RoutineUpdateWithWhereUniqueNestedInput!]
@@ -1313,6 +1314,7 @@ input WorkoutUpdateManyDataInput {
 input WorkoutUpdateManyInput {
   create: [WorkoutCreateInput!]
   connect: [WorkoutWhereUniqueInput!]
+  set: [WorkoutWhereUniqueInput!]
   disconnect: [WorkoutWhereUniqueInput!]
   delete: [WorkoutWhereUniqueInput!]
   update: [WorkoutUpdateWithWhereUniqueNestedInput!]

@@ -54,7 +54,9 @@ app.use(async (req, res, next) => {
         return next();
     }
     const user = await db.query.user({ where: { id: req.userId } });
-    req.user = user;
+    if (user) {
+        req.user = user;
+    }
     next();
 });
 server.applyMiddleware({ app, cors: corsOptions, path: "/" });
