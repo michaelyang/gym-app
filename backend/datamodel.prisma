@@ -15,6 +15,7 @@ type Routine {
 type Workout {
     id: ID! @unique
     name: String!
+    defaultSet: Int
 }
 
 type RoutineSession {

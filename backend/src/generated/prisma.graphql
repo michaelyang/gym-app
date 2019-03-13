@@ -1,5 +1,5 @@
-# source: https://us1.prisma.sh/michael-47ff10/weirdflex-test/dev
-# timestamp: Mon Mar 11 2019 22:00:45 GMT-0400 (EDT)
+# source: https://weirdflex-prod-e4a993b7cc.herokuapp.com/testing/prod
+# timestamp: Wed Mar 13 2019 00:57:35 GMT-0400 (EDT)
 
 type AggregateRoutine {
   count: Int!
@@ -442,7 +442,6 @@ input RoutineUpdateManyDataInput {
 input RoutineUpdateManyInput {
   create: [RoutineCreateInput!]
   connect: [RoutineWhereUniqueInput!]
-  set: [RoutineWhereUniqueInput!]
   disconnect: [RoutineWhereUniqueInput!]
   delete: [RoutineWhereUniqueInput!]
   update: [RoutineUpdateWithWhereUniqueNestedInput!]
@@ -873,6 +872,7 @@ input UserWhereUniqueInput {
 type Workout implements Node {
   id: ID!
   name: String!
+  defaultSet: Int
 }
 
 """A connection to a list of items."""
@@ -887,6 +887,7 @@ type WorkoutConnection {
 
 input WorkoutCreateInput {
   name: String!
+  defaultSet: Int
 }
 
 input WorkoutCreateManyInput {
@@ -913,6 +914,8 @@ enum WorkoutOrderByInput {
   id_DESC
   name_ASC
   name_DESC
+  defaultSet_ASC
+  defaultSet_DESC
   updatedAt_ASC
   updatedAt_DESC
   createdAt_ASC
@@ -922,6 +925,7 @@ enum WorkoutOrderByInput {
 type WorkoutPreviousValues {
   id: ID!
   name: String!
+  defaultSet: Int
 }
 
 input WorkoutScalarWhereInput {
@@ -1013,6 +1017,28 @@ input WorkoutScalarWhereInput {
 
   """All values not ending with the given string."""
   name_not_ends_with: String
+  defaultSet: Int
+
+  """All values that are not equal to given value."""
+  defaultSet_not: Int
+
+  """All values that are contained in given list."""
+  defaultSet_in: [Int!]
+
+  """All values that are not contained in given list."""
+  defaultSet_not_in: [Int!]
+
+  """All values less than the given value."""
+  defaultSet_lt: Int
+
+  """All values less than or equal the given value."""
+  defaultSet_lte: Int
+
+  """All values greater than the given value."""
+  defaultSet_gt: Int
+
+  """All values greater than or equal the given value."""
+  defaultSet_gte: Int
 }
 
 type WorkoutSession {
@@ -1301,20 +1327,22 @@ input WorkoutSubscriptionWhereInput {
 
 input WorkoutUpdateDataInput {
   name: String
+  defaultSet: Int
 }
 
 input WorkoutUpdateInput {
   name: String
+  defaultSet: Int
 }
 
 input WorkoutUpdateManyDataInput {
   name: String
+  defaultSet: Int
 }
 
 input WorkoutUpdateManyInput {
   create: [WorkoutCreateInput!]
   connect: [WorkoutWhereUniqueInput!]
-  set: [WorkoutWhereUniqueInput!]
   disconnect: [WorkoutWhereUniqueInput!]
   delete: [WorkoutWhereUniqueInput!]
   update: [WorkoutUpdateWithWhereUniqueNestedInput!]
@@ -1325,6 +1353,7 @@ input WorkoutUpdateManyInput {
 
 input WorkoutUpdateManyMutationInput {
   name: String
+  defaultSet: Int
 }
 
 input WorkoutUpdateManyWithWhereNestedInput {
@@ -1432,6 +1461,28 @@ input WorkoutWhereInput {
 
   """All values not ending with the given string."""
   name_not_ends_with: String
+  defaultSet: Int
+
+  """All values that are not equal to given value."""
+  defaultSet_not: Int
+
+  """All values that are contained in given list."""
+  defaultSet_in: [Int!]
+
+  """All values that are not contained in given list."""
+  defaultSet_not_in: [Int!]
+
+  """All values less than the given value."""
+  defaultSet_lt: Int
+
+  """All values less than or equal the given value."""
+  defaultSet_lte: Int
+
+  """All values greater than the given value."""
+  defaultSet_gt: Int
+
+  """All values greater than or equal the given value."""
+  defaultSet_gte: Int
 }
 
 input WorkoutWhereUniqueInput {

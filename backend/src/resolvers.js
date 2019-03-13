@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { forwardTo } = require("prisma-binding");
-
+//test
 const resolvers = {
     Query: {
         currentUser(parent, args, ctx, info) {

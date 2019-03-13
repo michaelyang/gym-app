@@ -1,13 +1,12 @@
-require("dotenv").config();
 const express = require("express");
-const { ApolloServer, gql } = require("apollo-server-express");
+require("dotenv").config();
+const { ApolloServer } = require("apollo-server-express");
 const { importSchema } = require("graphql-import");
 const resolvers = require("./resolvers");
 const { makeExecutableSchema } = require("graphql-tools");
 const cookieParser = require("cookie-parser");
-const db = require("./db");
 const jwt = require("jsonwebtoken");
-
+const db = require("./db");
 const typeDefs = importSchema("src/schema.graphql");
 const schema = makeExecutableSchema({
     typeDefs,

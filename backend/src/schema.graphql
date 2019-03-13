@@ -20,6 +20,7 @@ type Routine {
 type Workout {
     id: ID!
     name: String!
+    defaultSet: Int
 }
 
 type RoutineSession {
