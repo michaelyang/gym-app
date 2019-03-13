@@ -11,9 +11,7 @@ const typeDefs = importSchema("src/schema.graphql");
 const schema = makeExecutableSchema({
     typeDefs,
     resolvers,
-    resolverValidationOptions: { requireResolversForResolveType: false },
-    introspection: true,
-    playground: true
+    resolverValidationOptions: { requireResolversForResolveType: false }
 });
 
 const getUser = token => {
@@ -29,6 +27,8 @@ const getUser = token => {
 const server = new ApolloServer({
     cors: false,
     schema,
+    introspection: true,
+    playground: true,
     context: req => ({ ...req, db })
 });
 
