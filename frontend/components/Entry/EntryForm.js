@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import EntryButton from "./EntryButton";
-import FloatingLabelInput from "./FloatingLabelInput";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 
